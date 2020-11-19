@@ -100,8 +100,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        main_logo.setOnClickListener(view ->
-                Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_LONG).show());
+        main_logo.setOnClickListener(view -> {
+            Toast.makeText(MainActivity.this, "Click", Toast.LENGTH_LONG).show();
+            ShowAndHideFragment(fragments[0], fragments[preFragmentFlag]);
+            preFragmentFlag = 0;
+            main_bottomNavigation.setSelectedItemId(R.id.main_home);
+        });
 
         setSupportActionBar(main_toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
