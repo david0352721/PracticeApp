@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_home"
+        android:title="首頁"
+        android:icon="@drawable/main_home" />
+
+    <item
+        android:id="@+id/main_news"
+        android:title="最新消息"
+        android:icon="@drawable/main_news" />
+
+    <item
+        android:id="@+id/main_heart"
+        android:title="追蹤清單"
+        android:icon="@drawable/main_heart" />
+
+    <item
+        android:id="@+id/main_shopCar"
+        android:title="購物車"
+        android:icon="@drawable/main_shopcar" />
+
+    <item
+        android:id="@+id/main_member"
+        android:title="會員中心"
+        android:icon="@drawable/main_member" />
+
+</menu>
