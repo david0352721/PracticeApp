@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PracticeTestApp</string>
+    <string name="menu_test1">menu_test1</string>
+    <string name="menu_test2">menu_test2</string>
+    <string name="menu_test3">menu_test3</string>
+    <string name="menu_test4">menu_test4</string>
+    <string name="menu_test5">menu_test5</string>
 </resources>
