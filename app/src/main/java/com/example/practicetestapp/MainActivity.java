@@ -25,6 +25,8 @@ import com.example.practicetestapp.fragment.ShopCarFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     Toolbar main_toolbar;
@@ -108,15 +110,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         setSupportActionBar(main_toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
         actionBarDrawerToggle =
                 new ActionBarDrawerToggle(MainActivity.this, main_drawer, main_toolbar, 0, 0);
         main_drawer.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
 
+        main_navigationView.setItemIconTintList(null);
         main_navigationView.setNavigationItemSelectedListener(item -> {
             setDrawerClick(item.getItemId());
-            item.setChecked(true);
+            item.setChecked(false);
             main_drawer.closeDrawers();
             return false;
         });

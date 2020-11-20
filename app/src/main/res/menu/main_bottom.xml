@@ -3,26 +3,26 @@
     <item
         android:id="@+id/main_home"
         android:title="首頁"
-        android:icon="@drawable/main_home" />
+        android:icon="@drawable/main_home_select"/>
 
     <item
         android:id="@+id/main_news"
         android:title="最新消息"
-        android:icon="@drawable/main_news" />
+        android:icon="@drawable/main_news_select"/>
 
     <item
         android:id="@+id/main_heart"
         android:title="追蹤清單"
-        android:icon="@drawable/main_heart" />
+        android:icon="@drawable/main_heart_select"/>
 
     <item
         android:id="@+id/main_shopCar"
         android:title="購物車"
-        android:icon="@drawable/main_shopcar" />
+        android:icon="@drawable/main_shopcar_select"/>
 
     <item
         android:id="@+id/main_member"
         android:title="會員中心"
-        android:icon="@drawable/main_member" />
+        android:icon="@drawable/main_member_select"/>
 
 </menu>
