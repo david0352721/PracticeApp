@@ -7,43 +7,45 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.practicetestapp.R;
+import com.example.practicetestapp.tools.BannerData;
+import com.youth.banner.Banner;
+import com.youth.banner.adapter.BannerImageAdapter;
+import com.youth.banner.holder.BannerImageHolder;
+import com.youth.banner.indicator.CircleIndicator;
+
+import org.jetbrains.annotations.NotNull;
 
 public class HomeFragment extends Fragment {
-
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance(String param1, String param2) {
-        HomeFragment fragment = new HomeFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    Banner home_banner;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View home_view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        home_banner = home_view.findViewById(R.id.home_banner);
+        home_banner.setAdapter(new BannerImageAdapter<BannerData>(BannerData.getBannerData()) {
+            @Override
+            public void onBindView(BannerImageHolder holder, BannerData data, int position, int size) {
+                Glide.with(holder.itemView)
+                        .load(data.imageRes)
+                        .into(holder.imageView);
+            }
+        }).addBannerLifecycleObserver(this).setIndicator(new CircleIndicator(getContext()));
+        home_banner.setOnBannerListener((data, position) ->
+            Toast.makeText(getContext(), "Click" + position + "item", Toast.LENGTH_LONG).show());
+
+        return home_view;
     }
+
 }
